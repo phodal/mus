@@ -1,2 +1,3 @@
-# mus
-A TinyCompiler Learning DSL
+# MoDSL
+
+A RePractise DSL With TypeScript

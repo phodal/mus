@@ -1,14 +1,14 @@
 {
-  "name": "mus",
+  "name": "modsl",
   "version": "0.0.1",
-  "description": "A TinyCompiler Learning DSL Edit",
+  "description": "RePractise DSL with TypeScript",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/phodal/mus.git"
+    "url": "git+https://github.com/phodal/modsl.git"
   },
   "keywords": [
     "DSL"
@@ -16,7 +16,7 @@
   "author": "Phodal HUANG",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/phodal/mus/issues"
+    "url": "https://github.com/phodal/modsl/issues"
   },
-  "homepage": "https://github.com/phodal/mus#readme"
+  "homepage": "https://github.com/phodal/modsl#readme"
 }
