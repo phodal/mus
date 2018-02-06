@@ -13,6 +13,11 @@ test('basic', t => {
     REJECTED
   }
 
-  let mus = new Mus<ArticleState>(ArticleState.NEW);
+  let mus = new Mus.Mus<ArticleState>(ArticleState.NEW);
   t.deepEqual(typeof mus, 'object')
+});
+
+test('basic', t => {
+  let transition = Mus.Transition.transition('source', 'target', 'conditions');
+  t.deepEqual(transition, {source: 'source'})
 });

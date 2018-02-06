@@ -1,7 +1,7 @@
-export default class Mus<T> {
-  private currentState: T;
+import Mus from './mus';
+import Transition from './transition';
 
-  constructor (startState: T) {
-
-  }
+export default {
+  Mus: Mus,
+  Transition: Transition
 }
