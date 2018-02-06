@@ -18,6 +18,6 @@ test('basic', t => {
 });
 
 test('basic', t => {
-  let transition = Mus.Transition.transition('source', 'target', 'conditions');
+  let transition = Mus.Transition('source', 'target', 'conditions');
   t.deepEqual(transition, {source: 'source'})
 });
