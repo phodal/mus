@@ -2,6 +2,7 @@
 
 > finite-state machine in TypeScript for Angular
 
+[![Build Status](https://travis-ci.org/phodal/mus.svg?branch=master)](https://travis-ci.org/phodal/mus) [![codecov.io](https://codecov.io/github/phodal/mus/coverage.svg?branch=master)](https://codecov.io/github/phodal/mus?branch=master)  [![Maintainability](https://api.codeclimate.com/v1/badges/5cd05f9857e0a2031ba1/maintainability)](https://codeclimate.com/github/phodal/mus/maintainability) 
 
 Goal
 
