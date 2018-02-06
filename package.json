@@ -1,6 +1,6 @@
 {
   "name": "mus",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "RePractise DSL with TypeScript",
   "main": "build/main/index.js",
   "bin": "build/main/cli.js",
@@ -79,7 +79,7 @@
     "rollup-plugin-commonjs": "^8.2.6",
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-watch": "^4.3.1",
-    "sinon": "^4.1.2",
+    "sinon": "^4.2.2",
     "sleep-ms": "^2.0.1",
     "sorcery": "^0.10.0",
     "standard-version": "^4.0.0",

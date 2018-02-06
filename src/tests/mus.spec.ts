@@ -1,3 +1,5 @@
+let sinon = require('sinon')
+
 import { test } from 'ava'
 import { Mus, Transition } from 'mus'
 
@@ -18,6 +20,9 @@ test('basic', t => {
 })
 
 test('basic', t => {
-  let transition = Transition('source', 'target', 'conditions')
-  t.deepEqual(transition, {source: 'source'})
+  let consoleSpy = sinon.stub(console, 'log')
+  let classDecorator = Transition('source', 'target', 'conditions');
+  classDecorator.apply('')
+  t.deepEqual(consoleSpy.calledWith('source'), true)
+  consoleSpy.restore()
 })
