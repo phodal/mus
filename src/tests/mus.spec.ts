@@ -17,6 +17,24 @@ test('basic', t => {
 
   let mus = new Mus<ArticleState>(ArticleState.NEW)
   t.deepEqual(typeof mus, 'object')
+
+  mus.create({
+    start: () => {
+      mus.flow.start()
+    },
+    approve: () => {
+      mus.flow.start()
+    },
+    check_approve: () => {
+      mus.flow.start()
+    },
+    send: () => {
+      mus.flow.start()
+    },
+    end: () => {
+      mus.flow.end()
+    }
+  })
 })
 
 test('basic', t => {
