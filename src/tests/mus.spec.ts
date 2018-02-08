@@ -33,6 +33,7 @@ test('basic', t => {
     }
   })
   musFunc.publish(mus.flow)
+  console.log(mus.flow.state)
 })
 
 test('basic', t => {

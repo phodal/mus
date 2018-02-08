@@ -3,16 +3,22 @@ interface LooseObject {
 }
 
 export class Flow<T> {
+  public currentState: T
+
   start (state: T) {
-    //
+    this.currentState = state
   }
 
   transition (state: T) {
-    //
+    this.currentState = state
   }
 
   end () {
     //
+  }
+
+  get state () {
+    return this.currentState
   }
 }
 
@@ -23,6 +29,7 @@ export class Mus<T> {
   constructor (startState: T) {
     this.currentState = startState
     this.flow = new Flow<T>()
+    this.flow.start(this.currentState)
   }
 
   create (dslObjects: any): object {
