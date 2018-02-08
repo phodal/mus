@@ -1,5 +1,9 @@
-export class Flow {
-  start () {
+export class Flow<T> {
+  start (state: T) {
+    //
+  }
+
+  transition (state: T) {
     //
   }
 
@@ -9,7 +13,7 @@ export class Flow {
 }
 
 export class Mus<T> {
-  public flow: Flow
+  public flow: Flow<T>
   private currentState: T
 
   constructor (startState: T) {

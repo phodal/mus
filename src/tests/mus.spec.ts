@@ -9,37 +9,34 @@ test('basic', t => {
 
 test('basic', t => {
   enum ArticleState {
-    NEW,
+    CREATE,
     PUBLISHED,
     DESTROYED,
     REJECTED
   }
 
-  let mus = new Mus<ArticleState>(ArticleState.NEW)
+  let mus = new Mus<ArticleState>(ArticleState.CREATE)
   t.deepEqual(typeof mus, 'object')
 
   mus.create({
-    start: () => {
-      mus.flow.start()
+    create: () => {
+      mus.flow.start(ArticleState.CREATE)
     },
-    approve: () => {
-      mus.flow.start()
+    publish: () => {
+      mus.flow.transition(ArticleState.PUBLISHED)
     },
-    check_approve: () => {
-      mus.flow.start()
+    destory: () => {
+      mus.flow.transition(ArticleState.DESTROYED)
     },
-    send: () => {
-      mus.flow.start()
-    },
-    end: () => {
-      mus.flow.end()
+    reject: () => {
+      mus.flow.transition(ArticleState.REJECTED)
     }
   })
 })
 
 test('basic', t => {
   let consoleSpy = sinon.stub(console, 'log')
-  let classDecorator = Transition('source', 'target', 'conditions');
+  let classDecorator = Transition('source', 'target', 'conditions')
   classDecorator.apply('')
   t.deepEqual(consoleSpy.calledWith('source'), true)
   consoleSpy.restore()
