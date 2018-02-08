@@ -13,14 +13,18 @@ export class Flow<T> {
 }
 
 export class Mus<T> {
-  public flow: Flow<T>
   private currentState: T
 
   constructor (startState: T) {
     this.currentState = startState
   }
 
-  create (dsl: any) {
-    //
+  create (dslObject: any) {
+    let func = {}
+    for (let obj in dslObject) {
+      func[obj] = dslObject[obj]
+    }
+
+    return func
   }
 }

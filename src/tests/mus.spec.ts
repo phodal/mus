@@ -18,20 +18,24 @@ test('basic', t => {
   let mus = new Mus<ArticleState>(ArticleState.CREATE)
   t.deepEqual(typeof mus, 'object')
 
-  mus.create({
-    create: () => {
-      mus.flow.start(ArticleState.CREATE)
+  console.log(mus)
+
+  let musFunc = mus.create({
+    create: (flow) => {
+      flow.start(ArticleState.CREATE)
     },
-    publish: () => {
-      mus.flow.transition(ArticleState.PUBLISHED)
+    publish: (flow) => {
+      flow.transition(ArticleState.PUBLISHED)
     },
-    destory: () => {
-      mus.flow.transition(ArticleState.DESTROYED)
+    destroy: (flow) => {
+      flow.transition(ArticleState.DESTROYED)
     },
-    reject: () => {
-      mus.flow.transition(ArticleState.REJECTED)
+    reject: (flow) => {
+      flow.transition(ArticleState.REJECTED)
     }
   })
+  console.log(musFunc['publish'])
+  // musFunc.publish(mus.flow)
 })
 
 test('basic', t => {
