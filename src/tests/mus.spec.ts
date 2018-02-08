@@ -32,7 +32,7 @@ test('basic', t => {
       flow.transition(ArticleState.REJECTED)
     },
     end: (flow) => {
-      flow.transition(ArticleState.REJECTED)
+      flow.end()
     }
   }
   mus.create(musFunc)

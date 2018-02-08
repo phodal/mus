@@ -19,7 +19,14 @@ export class Flow<T> {
   }
 
   end () {
-    this.currentState = this.states[this.states.length]
+    let statesLength
+    for (let enumMember in this.states) {
+      let isValueProperty = parseInt(enumMember, 10) >= 0
+      if (isValueProperty) {
+        statesLength = parseInt(enumMember, 10)
+      }
+    }
+    this.currentState = statesLength
   }
 
   get state () {
