@@ -1,7 +1,7 @@
 let sinon = require('sinon')
 
 import { test } from 'ava'
-import { Mus, Transition } from 'mus'
+import { Mus, Transition, Flow } from 'mus'
 
 test('basic', t => {
   t.deepEqual(1, 1)
@@ -18,8 +18,6 @@ test('basic', t => {
   let mus = new Mus<ArticleState>(ArticleState.CREATE)
   t.deepEqual(typeof mus, 'object')
 
-  console.log(mus)
-
   let musFunc = mus.create({
     create: (flow) => {
       flow.start(ArticleState.CREATE)
@@ -34,8 +32,7 @@ test('basic', t => {
       flow.transition(ArticleState.REJECTED)
     }
   })
-  console.log(musFunc['publish'])
-  // musFunc.publish(mus.flow)
+  musFunc.publish(mus.flow)
 })
 
 test('basic', t => {

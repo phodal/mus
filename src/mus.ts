@@ -17,16 +17,23 @@ export class Flow<T> {
 }
 
 export class Mus<T> {
+  public flow: Flow<T>
   private currentState: T
 
   constructor (startState: T) {
     this.currentState = startState
+    this.flow = new Flow<T>()
   }
 
-  create (dslObject: any): object {
+  create (dslObjects: any): object {
     let func: LooseObject = {}
-    for (let obj in dslObject) {
-      func[obj] = dslObject[obj]
+    for (let obj in dslObjects) {
+      Object.defineProperty(func, obj, {
+        value: dslObjects[obj],
+        writable: true,
+        enumerable: true,
+        configurable: true
+      })
     }
 
     return func
