@@ -1,3 +1,7 @@
+interface LooseObject {
+  [key: string]: any
+}
+
 export class Flow<T> {
   start (state: T) {
     //
@@ -19,8 +23,8 @@ export class Mus<T> {
     this.currentState = startState
   }
 
-  create (dslObject: any) {
-    let func = {}
+  create (dslObject: any): object {
+    let func: LooseObject = {}
     for (let obj in dslObject) {
       func[obj] = dslObject[obj]
     }
