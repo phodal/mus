@@ -51,3 +51,40 @@ test('basic', t => {
   t.deepEqual(consoleSpy.calledWith('source'), true)
   consoleSpy.restore()
 })
+test('can get transitions', t => {
+  enum ArticleState {
+    CREATE,
+    PUBLISHED,
+    DESTROYED,
+    REJECTED
+  }
+
+  let mus = new Mus<ArticleState>(ArticleState, ArticleState.CREATE)
+  t.deepEqual(typeof mus, 'object')
+
+  let musFunc = {
+    create: (flow) => {
+      flow.start(ArticleState.CREATE)
+    },
+    publish: (flow) => {
+      flow.transition(ArticleState.PUBLISHED)
+    },
+    destroy: (flow) => {
+      flow.transition(ArticleState.DESTROYED)
+    },
+    reject: (flow) => {
+      flow.transition(ArticleState.REJECTED)
+    },
+    end: (flow) => {
+      flow.end()
+    }
+  }
+  mus.create(musFunc)
+  t.deepEqual(mus.transitions,  [
+    'create',
+    'publish',
+    'destroy',
+    'reject',
+    'end'
+  ])
+})

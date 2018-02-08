@@ -36,17 +36,20 @@ export class Flow<T> {
 
 export class Mus<T> {
   public flow: Flow<T>
+  public transitions: any[]
   private currentState: T
 
   constructor (states: any, startState: T) {
     this.currentState = startState
     this.flow = new Flow<T>(states)
     this.flow.start(this.currentState)
+    this.transitions = []
   }
 
   create (dslObjects: any): object {
     let func: LooseObject = {}
     for (let obj in dslObjects) {
+      this.transitions.push(obj)
       Object.defineProperty(func, obj, {
         value: dslObjects[obj],
         writable: true,
