@@ -30,6 +30,9 @@ test('basic', t => {
     },
     reject: (flow) => {
       flow.transition(ArticleState.REJECTED)
+    },
+    end: (flow) => {
+      flow.transition(ArticleState.REJECTED)
     }
   }
   mus.create(musFunc)
@@ -37,6 +40,8 @@ test('basic', t => {
   t.deepEqual(mus.flow.state, ArticleState[ArticleState.PUBLISHED])
   musFunc.destroy(mus.flow)
   t.deepEqual(mus.flow.state, ArticleState[ArticleState.DESTROYED])
+  musFunc.end(mus.flow)
+  t.deepEqual(mus.flow.state, ArticleState[ArticleState.REJECTED])
 })
 
 test('basic', t => {

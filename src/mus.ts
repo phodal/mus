@@ -19,7 +19,7 @@ export class Flow<T> {
   }
 
   end () {
-    //
+    this.currentState = this.states[this.states.length]
   }
 
   get state () {
