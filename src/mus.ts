@@ -4,13 +4,18 @@ interface LooseObject {
 
 export class Flow<T> {
   public currentState: T
+  private states: any
 
-  start (state: T) {
-    this.currentState = state
+  constructor (states: any) {
+    this.states = states
   }
 
-  transition (state: T) {
-    this.currentState = state
+  start (currentState: T) {
+    this.currentState = currentState
+  }
+
+  transition (nextState: T) {
+    this.currentState = nextState
   }
 
   end () {
@@ -18,7 +23,7 @@ export class Flow<T> {
   }
 
   get state () {
-    return this.currentState
+    return this.states[this.currentState]
   }
 }
 
@@ -26,9 +31,9 @@ export class Mus<T> {
   public flow: Flow<T>
   private currentState: T
 
-  constructor (startState: T) {
+  constructor (states: any, startState: T) {
     this.currentState = startState
-    this.flow = new Flow<T>()
+    this.flow = new Flow<T>(states)
     this.flow.start(this.currentState)
   }
 
