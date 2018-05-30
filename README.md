@@ -15,13 +15,13 @@ Goal
 
 1. Annotation
 
-```
+```python
 @transition(field='state', source='new', target='published', conditions=[can_publish])
 ```
 
 2. Simple DSL Support
 
-```
+```python
 @transition(
     field='state',
     source='for_moderators',
@@ -49,7 +49,7 @@ References
  
 JavaScript Example:
 
-```
+```javascript
 var fsm = new StateMachine({
   init: 'solid',
   transitions: [
